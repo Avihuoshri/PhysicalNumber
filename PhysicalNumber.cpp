@@ -1,118 +1,141 @@
-
 #include <iostream>
 #include <string>
 #include "PhysicalNumber.h"
 #include "Unit.h"
 
-using namespace std ;
+using namespace std;
 using namespace ariel;
 class PhysicalNumber
 {
-double number ;
-int type ;
-    PhysiclNumber::PhysicalNumber(double num , Unit t)
+	double number ;
+    Unit type ;
+	PhysicalNumber(double num, Unit t)
+	{
+		number = num;
+		type = t;
+	}
+
+	//"+" onary
+	const PhysicalNumber operator+() const
+	{
+		return PhysicalNumber(0, Unit::KM);
+	}
+
+	//"-" onary
+	const PhysicalNumber operator-() const
+	{
+		return PhysicalNumber(0, Unit::KM);
+	}
+
+	// "+" operator
+	PhysicalNumber operator+(const PhysicalNumber& num)
+	{/*
+		int groupTypeNum1 = this->type/3 ;
+		int groupTypeNum2 = num.type/3 ;
+
+		*/
+
+		/*if (groupTypeNum1 != groupTypeNum2)
+		{
+			throw std::invalid argument("ERROR : can't add two numbers with different types");
+		}*/
+		return PhysicalNumber(0, Unit::KM);
+	}
+
+	// "-" operator
+	PhysicalNumber operator-(const PhysicalNumber& num1)
+	{
+		return PhysicalNumber(0, Unit::KM);
+
+	}
+
+	// "+=" operator
+	PhysicalNumber& operator+=(const PhysicalNumber& size)
+	{
+		return *this;
+
+	}
+	// "-=" operator
+	PhysicalNumber& operator-=(const PhysicalNumber& size)
+	{
+		return *this;
+
+	}
+	// "=" operator
+	PhysicalNumber& operator=(const PhysicalNumber& size)
+	{
+		return *this;
+
+	}
+
+	// "==" operator
+	const bool ariel::operator==(const PhysicalNumber& num1)
+	{
+		return false;
+
+	}
+	// "!=" operator
+	const bool operator!=(const PhysicalNumber& num1)
+	{
+		return false;
+
+	}
+	// ">=" operator
+	const bool operator>=(const PhysicalNumber& num1)
+	{
+		return false;
+
+	}
+	// "<=" operator
+	const bool operator<=(const PhysicalNumber& num1)
+	{
+		return false;
+
+	}
+	// ">" operator
+	const bool operator>(const PhysicalNumber& num1)
+	{
+		return false;
+
+	}
+	// "<" operator
+	const bool operator<(const PhysicalNumber& num1)
+	{
+		return false;
+
+	}
+
+	// "++" operator
+	PhysicalNumber& operator++()
+	{
+		return *this;
+
+	}
+	//"--"  operator
+	PhysicalNumber& operator--()
+	{
+		return *this;
+
+	}
+
+	//"<<" operator - output stream
+	ostream& ariel::operator<<( ostream& os )
+	{
+		return os;
+	}
+
+	//">>" operator - input stream
+	istream& operator>>( istream& is , PhysicalNumber num)
+	{
+		return is;
+
+	}
+
+    int main(int argc, char const *argv[])
     {
-       number = num ;
-       type  = t ;
+        /* code */
+        return 0;
     }
 
-     //"+" onary
-        const PhysicalNumber PhysicalNumber::operator+() const;
-        
-        //"-" onary
-        const PhysicalNumber PhysicalNumber::operator-() const;
-       
-        // "+" operator
-        PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber& num) 
-        {
-            int groupTypeNum1 = this->type / 3 ;
-            int groupTypeNum2 = num. ;
-            
-
-            if(groupTypeNum1 != groupTypeNum2)
-            {
-                throw std::invalid argument("ERROR : can't add two numbers with different types");
-            }
-        }
-        
-        // "-" operator
-        PhysicalNumber PhysicalNumber::operator-(const PhysicalNumber& num1 ,const PhysicalNumber& num2) ;
-        {
-    
-        }
-
-        // "+=" operator
-        PhysicalNumber& PhysicalNumber::operator+=(const PhysicalNumber& size) ;
-        {
-
-        }
-        // "-=" operator
-        PhysicalNumber& PhysicalNumber::operator-=(const PhysicalNumber& size) 
-        {
-
-        }
-        // "=" operator
-        PhysicalNumber& PhysicalNumber::operator=(const PhysicalNumber& size) 
-        {
-
-        }
-
-        // "==" operator
-        const bool PhysicalNumber::operator==(const PhysicalNumber& num1 ,const PhysicalNumber& num2)  
-        {
-
-        }
-        // "!=" operator
-        const bool PhysicalNumber::operator!=(const PhysicalNumber& num1 ,const PhysicalNumber& num2) 
-        {
-            
-        }
-        // ">=" operator
-        const bool PhysicalNumber::operator>=(const PhysicalNumber& num1 ,const PhysicalNumber& num2) 
-        {
-            
-        }
-        // "<=" operator
-        const bool PhysicalNumber::operator<=(const PhysicalNumber& num1 ,const PhysicalNumber& num2) 
-        {
-            
-        }
-        // ">" operator
-        const bool PhysicalNumber::operator>( const PhysicalNumber& num1 ,const PhysicalNumber& num2)  
-        {
-            
-        }
-        // "<" operator
-        const bool PhysicalNumber::operator<( const PhysicalNumber& num1 ,const PhysicalNumber& num2)  
-        {
-            
-        }
-        
-        // "++" operator
-        PhysicalNumber& PhysicalNumber::operator++()
-        {
-            
-        }
-        //"--"  operator
-        PhysicalNumber& PhysicalNumber::operator--()
-        {
-            
-        }
-
-        //"<<" operator - output stream
-         ostream& ariel::operator<<(ostream &os, const PhysicalNumber& num)
-         {
-            
-         }
-
-        //">>" operator - input stream
-         istream& ariel::operator>>(istream &is, PhysicalNumber& num)
-         {
-            
-         }
-
-   
 
 };
-
-

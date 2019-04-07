@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Unit.h"
-#pragma once
-using std::istream,std::ostream
+using std::istream,std::ostream ; 
 
 
 namespace ariel 
@@ -9,9 +8,13 @@ namespace ariel
     class PhysicalNumber
     {
 
+       
+        
+
         public:
-        double number ;
-        Unit type ;
+         Unit type ;
+         double number ;
+       
          //constructor
         PhysicalNumber(double number , Unit type) ;
 
@@ -22,10 +25,10 @@ namespace ariel
         const PhysicalNumber operator-() const;
        
         // "+" operator
-        PhysicalNumber operator+(const PhysicalNumber& num1 ,const PhysicalNumber& num2) ;
+        PhysicalNumber operator+(const PhysicalNumber& num1 ) ;
         
         // "-" operator
-        PhysicalNumber operator-(const PhysicalNumber& num1 ,const PhysicalNumber& num2) ;
+        PhysicalNumber operator-(const PhysicalNumber& num1 ) ;
 
         // "+=" operator
         PhysicalNumber& operator+=(const PhysicalNumber& size) ;
@@ -57,7 +60,7 @@ namespace ariel
 
         //">>" operator - input
         friend istream& operator>>(istream &is, PhysicalNumber& num);
-    }
+    };
 
 
 
