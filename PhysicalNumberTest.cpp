@@ -279,10 +279,42 @@ int main() {
     .CHECK_OUTPUT(z,"700[kg]")
     .CHECK_OK(istringstream("5[m]") >> y)
     .CHECK_OUTPUT(y,"5[m]")
+    
+
+
+    .CHECK_EQUAL(a1<=a1,true)                                         //2[cm] <= 2[cm]
+    .CHECK_EQUAL(a1<=a2,true)                                         //2[cm] <= 3[km]                                         
+    .CHECK_EQUAL(a4<=a2,true)                                         //0.1[km] <= 3[km]
+    .CHECK_EQUAL(b4<=b3,true)                                         //0.1[hour] <= 4[hour]
+    .CHECK_EQUAL(b4<=PhysicalNumber(10,Unit::MIN),true)               //0.1[hour] <= 10[min]
+    .CHECK_EQUAL(c2<=c3,true)                                         //3[kg] <= 4[ton]
+    .CHECK_EQUAL(c1<=c4,true)                                         
+
+    
 
 
 
-
+//Our Tester
+    PhysicalNumber km(4.5, Unit::KM);
+    PhysicalNumber m(4500, Unit::M);
+    PhysicalNumber hour(100, Unit::HOUR);
+    PhysicalNumber min(6000, Unit::MIN);
+    PhysicalNumber cm(50, Unit::CM);
+    PhysicalNumber sec(2050, Unit::SEC);
+    .CHECK_EQUAL(m<=km,true)
+    .CHECK_EQUAL(m==km,true)
+    .CHECK_THROWS(km<=sec)
+    .CHECK_THROWS(m>=min)
+    .CHECK_THROWS(cm>=m)
+    .CHECK_THROWS(min<=hour)
+    .CHECK_OK(istringstream("440[seconds]") >> x)
+    .CHECK_OUTPUT(x,"700[kg]")
+    .CHECK_OK(istringstream("20[km]") >> y)
+    .CHECK_OUTPUT(y,"270[minutes]")
+    .CHECK_OK(istringstream("520.8[cm]") >> z)
+    .CHECK_OUTPUT(z,"5[hours]")
+    .CHECK_OK(istringstream("700[grams]") >> y)
+    .CHECK_OUTPUT(y,"700[m]")
       .print(cout, /*show_grade=*/false);
       grade = testcase.grade();
     } else {

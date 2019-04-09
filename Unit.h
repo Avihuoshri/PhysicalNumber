@@ -10,7 +10,7 @@ namespace ariel
       M,
       KM,
       SEC,
-      MINUTE,
+      MIN,
       HOUR,
       G,
       KG,

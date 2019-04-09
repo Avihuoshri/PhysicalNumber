@@ -5,30 +5,29 @@
 
 using namespace std;
 using namespace ariel;
-class PhysicalNumber
-{
-	double number ;
-    Unit type ;
-	PhysicalNumber(double num, Unit t)
+
+	//double number ;
+        //Unit type ;
+	PhysicalNumber::PhysicalNumber(double num, Unit t)
 	{
 		number = num;
 		type = t;
 	}
 
 	//"+" onary
-	const PhysicalNumber operator+() const
+	const PhysicalNumber PhysicalNumber::operator+() const
 	{
 		return PhysicalNumber(0, Unit::KM);
 	}
 
 	//"-" onary
-	const PhysicalNumber operator-() const
+	const PhysicalNumber PhysicalNumber::operator-() const
 	{
 		return PhysicalNumber(0, Unit::KM);
 	}
 
 	// "+" operator
-	PhysicalNumber operator+(const PhysicalNumber& num)
+	PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber& num)
 	{/*
 		int groupTypeNum1 = this->type/3 ;
 		int groupTypeNum2 = num.type/3 ;
@@ -43,99 +42,108 @@ class PhysicalNumber
 	}
 
 	// "-" operator
-	PhysicalNumber operator-(const PhysicalNumber& num1)
+	PhysicalNumber PhysicalNumber::operator-(const PhysicalNumber& num1)
 	{
 		return PhysicalNumber(0, Unit::KM);
 
 	}
 
 	// "+=" operator
-	PhysicalNumber& operator+=(const PhysicalNumber& size)
+	PhysicalNumber& PhysicalNumber::operator+=(const PhysicalNumber& size)
 	{
 		return *this;
 
 	}
 	// "-=" operator
-	PhysicalNumber& operator-=(const PhysicalNumber& size)
+	PhysicalNumber& PhysicalNumber::operator-=(const PhysicalNumber& size)
 	{
 		return *this;
 
 	}
 	// "=" operator
-	PhysicalNumber& operator=(const PhysicalNumber& size)
+	PhysicalNumber& PhysicalNumber::operator=(const PhysicalNumber& size)
 	{
 		return *this;
 
 	}
 
 	// "==" operator
-	const bool ariel::operator==(const PhysicalNumber& num1)
+	const bool PhysicalNumber::operator==(const PhysicalNumber& num1)
 	{
 		return false;
 
 	}
 	// "!=" operator
-	const bool operator!=(const PhysicalNumber& num1)
+	const bool PhysicalNumber::operator!=(const PhysicalNumber& num1)
 	{
 		return false;
 
 	}
 	// ">=" operator
-	const bool operator>=(const PhysicalNumber& num1)
+	const bool PhysicalNumber::operator>=(const PhysicalNumber& num1)
 	{
 		return false;
 
 	}
 	// "<=" operator
-	const bool operator<=(const PhysicalNumber& num1)
+	const bool PhysicalNumber::operator<=(const PhysicalNumber& num1)
 	{
 		return false;
 
 	}
 	// ">" operator
-	const bool operator>(const PhysicalNumber& num1)
+	const bool PhysicalNumber::operator>(const PhysicalNumber& num1)
 	{
 		return false;
 
 	}
 	// "<" operator
-	const bool operator<(const PhysicalNumber& num1)
+	const bool PhysicalNumber::operator<(const PhysicalNumber& num1)
 	{
 		return false;
 
 	}
 
 	// "++" operator
-	PhysicalNumber& operator++()
+	PhysicalNumber& PhysicalNumber::operator++()
 	{
 		return *this;
 
 	}
 	//"--"  operator
-	PhysicalNumber& operator--()
+	PhysicalNumber& PhysicalNumber::operator--(int num)
+	{
+             --this->number;
+             return *this;
+
+	}
+        // "++" operator
+	PhysicalNumber& PhysicalNumber::operator++(int num)
+	{
+	     ++this->number;
+             return *this;
+
+	}
+	//"--"  operator
+	PhysicalNumber& PhysicalNumber::operator--()
 	{
 		return *this;
 
 	}
-
 	//"<<" operator - output stream
-	ostream& ariel::operator<<( ostream& os )
+	ostream& ariel::operator<<(ostream& os,const PhysicalNumber& num)
 	{
 		return os;
 	}
 
 	//">>" operator - input stream
-	istream& operator>>( istream& is , PhysicalNumber num)
+	istream& ariel::operator>>(istream& is,PhysicalNumber& num)
 	{
 		return is;
 
 	}
 
-    int main(int argc, char const *argv[])
-    {
-        /* code */
-        return 0;
-    }
+   
 
 
-};
+
